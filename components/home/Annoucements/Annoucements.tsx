@@ -59,13 +59,9 @@ const Annoucements = () => {
                         {announcements.map((item) => {
                             const badgeType = item.tagType?.toLowerCase() || item.tag?.toLowerCase();
                             return (
-                                <Link
-                                    key={item.id}
-                                    href="/deals-and-announcements"
-                                    className={styles.carousel_item}
-                                >
-                                    <span
-                                        className={`${styles.badge} ${
+                                // <Link key={item.id} href="/deals-and-announcements" className={styles.carousel_item}>
+                                <div key={item.id} className={styles.carousel_item}>
+                                    <span className={`${styles.badge} ${
                                             badgeType === "deadline"
                                                 ? styles.badge_deadline
                                                 : badgeType === "event"
@@ -77,7 +73,8 @@ const Annoucements = () => {
                                     </span>
                                     <span className={styles.item_title}>{item.title}</span>
                                     <span className={styles.separator}>/</span>
-                                </Link>
+                                </div>
+                                // </Link>
                             );
                         })}
                     </div>
