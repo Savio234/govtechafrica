@@ -262,3 +262,15 @@ export interface DealsAndAnnouncementCardProps {
     description: string;
     slug?: string;
 }
+
+export interface dealsAndAnnouncementsProps {
+	id: string;
+    date: string;
+    tag: string;
+    tagType: string;
+    title: string;
+    description: string;
+    category: string;
+    pinned?: boolean;
+    url?: string;
+}

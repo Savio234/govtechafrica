@@ -149,10 +149,10 @@ const LinkItem = ({
 							setCollapsed(true);
 							router.push(`/who-we-are`);
 						}
-						if (index === 2) {
-							setCollapsed(true);
-							router.push(`/insights`);
-						}
+						// if (index === 2) {
+						// 	setCollapsed(true);
+						// 	router.push(`/insights`);
+						// }
 					}}
 				>
 					{link?.label}

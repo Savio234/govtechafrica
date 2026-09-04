@@ -1,0 +1,157 @@
+@import "@/styles/imports";
+
+.interviews_view {
+    width: 100%;
+    background-color: #000000;
+    padding: 12rem 3.2rem 0;
+    @include screenMax("tablet") {
+        padding: 10rem 2.4rem 0;
+    }
+    @include screenMax("mobile") {
+        padding: 8rem 1.6rem 0;
+    }
+
+    .container {
+        max-width: $max-width;
+        width: 100%;
+        margin-inline: auto;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2.4rem;
+            margin-bottom: 2.4rem;
+            @include screenMax("mobile") {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header_text {
+                max-width: 60rem;
+                .title {
+                    font-size: 5.6rem;
+                    font-weight: 900;
+                    font-family: $font-gothic-bold;
+                    color: #FFFFFF;
+                    line-height: 1.3;
+                    margin-bottom: 1.6rem;
+                    letter-spacing: -0.02em;
+                    @include screenMax("tablet") {
+                        font-size: 4rem;
+                        line-height: 5.6rem;
+                    }
+                    @include screenMax("mobile") {
+                        font-size: 3.2rem;
+                        line-height: 4rem;
+                    }
+                }
+                .subtitle {
+                    font-size: 1.6rem;
+                    color: #9CA3AF;
+                    font-family: $font;
+                    line-height: 2.4rem;
+                    @include screenMax("tablet") {
+                        font-size: 1.4rem;
+                        line-height: 2rem;
+                    }
+                    @include screenMax("mobile") {
+                        font-size: 1.2rem;
+                        line-height: 1.6rem;
+                    }
+                }
+            }
+
+            .sort_container {
+                .sort_btn {
+                    background-color: #0F1411;
+                    border: 0.1rem solid rgba(255, 255, 255, 0.12);
+                    padding: 1rem 2.4rem;
+                    border-radius: 999rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    &:hover {
+                        border-color: #1BD96A;
+                    }
+                    span {
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                        font-family: $font;
+                        color: #FFFFFF;
+                    }
+                    @include screenMax("mobile") {
+                        padding: 0.8rem 1.6rem;
+                        span {
+                            font-size: 1.2rem;
+                            line-height: 1.6rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .divider {
+            height: 0.1rem;
+            width: 100%;
+            background-color: #3FCB7440;
+            margin-bottom: 3.2rem;
+        }
+
+        .filter_row {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+            .filter_btn {
+                background-color: transparent;
+                border: 0.1rem solid rgba(255, 255, 255, 0.15);
+                color: #A0A0A0;
+                padding: 0.8rem 2.2rem;
+                border-radius: 999rem;
+                font-size: 1.4rem;
+                font-family: $font;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                &:hover {
+                    border-color: rgba(27, 217, 106, 0.5);
+                    color: #FFFFFF;
+                }
+                &.active {
+                    background-color: #1BD96A;
+                    border-color: #1BD96A;
+                    color: #061A0E;
+                    font-weight: 600;
+                }
+
+                @include screenMax("mobile") {
+                    padding: 0.6rem 1.6rem;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+
+        .research_wrapper {
+			padding: 3.6rem;
+			max-width: $max-width;
+			margin-inline: auto;
+			overflow-x: hidden;
+			@include grid(repeat(4, 1fr), 5.6rem);
+			@include noScrollBar();
+
+            @include screenMax("tablet") {
+                @include grid(repeat(2, 1fr), 9.6rem);
+				padding: 2.4rem 6.4rem;
+
+            }
+            @include screenMax("mobile") {
+                display: flex;
+				flex-direction: column;
+				gap: 1.6rem;
+				padding: 1.6rem;
+				& > article {
+					width: 100%!important;
+				}
+            }
+		}
+    }
+}

@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import styles from "./InterviewsView.module.scss";
 import { useGetContentful } from "@/hooks";
 import { BlogDetailsProps } from "@/interfaces";
 import { InterviewsCard } from "@/shared";
+import styles from "./InterviewsView.module.scss";
 // const categories = ["All", "Q&A", "Video", "Audio", "Govtech Originals"];
 const categories = ["All"];
 

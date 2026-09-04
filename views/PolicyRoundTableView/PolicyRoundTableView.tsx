@@ -1,7 +1,5 @@
 import React from "react";
-import { Hero, About, Speakers, Register, GreenSection, Footer, Agenda, Media,
-    ParticipatingOrganisations,
-} from "@/components/PolicyRoundTable";
+import { Hero, About, Speakers, Register, GreenSection, Footer, Agenda, Media, ParticipatingOrganisations } from "@/components/PolicyRoundTable";
 
 const PolicyRoundTableView = () => {
     return (

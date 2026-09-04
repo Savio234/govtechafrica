@@ -74,7 +74,7 @@ const ParticipatingOrganisations = ({ type = "default" }: Props) => {
         mass: 0.5
     });
     return (
-        <div ref={type === "default" ? null : partnersRef} data-type={type} className={styles.slider_container}>
+        <div ref={partnersRef} data-type={type} className={styles.slider_container}>
             <motion.div style={{ y, opacity }} className={styles.slider_wrapper}>
                 <h3 className={styles.h3}>
                     {type === "new" ? "our partners" : "participating organisations"}

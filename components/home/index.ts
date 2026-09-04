@@ -7,7 +7,6 @@ import GrowthV2 from "./growth/GrowthV2";
 import Insights from "./insights/Insights";
 import Mission from "./Mission/Mission";
 import MissionV2 from "./Mission/MissionV2";
-import NewsLetter from "./NewsLetter/NewsLetter";
 import Partners from "./Partners/Partners";
 import Research from "./Research/Research";
 import Experience from "./experience/Experience";
@@ -16,7 +15,6 @@ import IntroToFulcrum from "./IntroToFulcrum/IntroToFulcrum";
 import InterviewSection from "./InterviewSection/InterviewSection";
 import Annoucements from "./Annoucements/Annoucements";
 
-export { Growth, Drivers, CenterPiece, Choose, Insights, Mission, Research, Partners,
-    NewsLetter, GrowthV2, CenterPieceV2, MissionV2, Experience,
-    NPGR, IntroToFulcrum, InterviewSection, Annoucements
+export { Growth, Drivers, CenterPiece, Choose, Insights, Mission, Research, Partners, GrowthV2, CenterPieceV2,
+    MissionV2, Experience, NPGR, IntroToFulcrum, InterviewSection, Annoucements
 };

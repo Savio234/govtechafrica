@@ -16,6 +16,7 @@ import NewWhoWeAreView from "./NewWhoWeAreView/NewWhoWeAreView";
 import ReportsView from "./ReportsView/ReportsView";
 import NewWhatWeDo from "./NewWhatWeDo/NewWhatWeDo";
 import InterviewsView from "./InterviewsView/InterviewsView";
+import ResearchView from "./ResearchView/ResearchView";
 
 
 export {
@@ -29,6 +30,7 @@ export {
     ReportsView,
     NewHomeView,
     BackgroundersView,
+    ResearchView,
     InterviewsView,
     NewWhatWeDo,
     PolicyRoundTableView,

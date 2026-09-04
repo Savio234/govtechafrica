@@ -79,6 +79,10 @@ const NewsLetterSection = () => {
         <React.Fragment>
             <div id="newsletter" ref={newsLetterRef} className={styles.newsletter_wrapper}>
                 <motion.div style={{ y, opacity }} className={styles.newsletter_card}>
+                    <div className={styles.corner_top_left} />
+                    <div className={styles.corner_top_right} />
+                    <div className={styles.corner_bottom_left} />
+                    <div className={styles.corner_bottom_right} />
                     <div className={styles.bg_pattern}></div>
                     <div className={styles.content_container}>
                         <h1>

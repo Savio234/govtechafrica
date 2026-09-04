@@ -1,4 +1,4 @@
-import { cookiesPolicyDataProps, NavLink, PrivacyPolicyProps, TechnologyProps } from "@/interfaces";
+import { cookiesPolicyDataProps, dealsAndAnnouncementsProps, NavLink, PrivacyPolicyProps, TechnologyProps } from "@/interfaces";
 
 export const navLinks: NavLink[] = [
 	// {
@@ -168,65 +168,45 @@ export const navLinks: NavLink[] = [
 		]
 	},
 	{
-		label: "research",
+		label: "insights",
 		external: false,
-		href: "insights",
+		// href: "insights",
 		icon: "/svgs/link-main.svg",
 		subMenu: [
 			// {
-			// 	label: "insights",
-			// 	href: "/insights",
-			// 	icon: "/svgs/arrow.svg",
-			// 	menu: [
-			// 		{
-			// 			label: "Backgrounders",
-			// 			href: "/backgrounders",
-			// 			id: "backgrounders",
-			// 			icon: "",
-			// 			external: false
-			// 		},
-			// 		{
-			// 			label: "policy insights",
-			// 			href: "/policy-insights",
-			// 			id: "policy-insights",
-			// 			icon: "",
-			// 			external: false
-			// 		},
-			// 		{
-			// 			label: "articles",
-			// 			href: "/articles",
-			// 			id: "articles",
-			// 			icon: "",
-			// 			external: false
-			// 		},
-			// 		{
-			// 			label: "reports",
-			// 			href: "/reports",
-			// 			id: "reports",
-			// 			icon: "",
-			// 			external: false
-			// 		},
-			// 	]
+			// 	label: "Backgrounders",
+			// 	href: "/backgrounders",
+			// 	id: "backgrounders",
+			// },
+			// {
+			// 	label: "policy insights",
+			// 	href: "/policy-insights",
+			// 	id: "policy-insights",
+			// },
+			// {
+			// 	label: "articles",
+			// 	href: "/articles",
+			// 	id: "articles",
+			// },
+			// {
+			// 	label: "reports",
+			// 	href: "/reports",
+			// 	id: "reports",
 			// },
 			{
-				label: "Backgrounders",
-				href: "/backgrounders",
-				id: "backgrounders",
+				label: "research",
+				href: "/insights/research",
+				id: "research",
 			},
 			{
-				label: "policy insights",
-				href: "/policy-insights",
-				id: "policy-insights",
+				label: "deals and announcements",
+				href: "/deals-and-announcements",
+				id: "deals-and-announcements",
 			},
 			{
-				label: "articles",
-				href: "/articles",
-				id: "articles",
-			},
-			{
-				label: "reports",
-				href: "/reports",
-				id: "reports",
+				label: "interviews",
+				href: "/interviews",
+				id: "interviews",
 			},
 		]
 	}
@@ -1174,7 +1154,18 @@ export const sections = [
     // },
 ]
 
-export const dealsAndAnnouncementsArray = [
+export const dealsAndAnnouncementsArray: dealsAndAnnouncementsProps[] = [
+    {
+        id: "pinned-1",
+        date: "Nov 12, 2026",
+        tag: "EVENT",
+        tagType: "event",
+        title: "National Govtech Policy Roundtable returns to Abuja this November.",
+        description: "Policymakers, technologists, and civil society leaders convene for three days to shape the next phase of Africa's digital governance agenda.",
+        category: "Events",
+        pinned: true,
+        url: "/policy-roundtable",
+    },
     {
         id: "1",
         date: "Aug 24, 2026",
@@ -1183,7 +1174,6 @@ export const dealsAndAnnouncementsArray = [
         title: "National Digital ID rollout enters Phase 2",
         description: "Enrollment centers expand to twelve additional local government areas, with mobile registration units launching in rural districts.",
         category: "Updates",
-        slug: "national-digital-id-phase-2"
     },
     {
         id: "2",
@@ -1193,7 +1183,6 @@ export const dealsAndAnnouncementsArray = [
         title: "Civic-tech grant applications close September 30",
         description: "Early-stage teams building public-interest technology can still apply for this cycle's funding and mentorship track.",
         category: "Deadlines",
-        slug: "civic-tech-grant-applications"
     },
     {
         id: "3",
@@ -1203,7 +1192,6 @@ export const dealsAndAnnouncementsArray = [
         title: "Govtech Policy Roundtable — Abuja, November 12–14",
         description: "Registration opens for this year's roundtable, featuring policy workshops, an interview studio, and a closing plenary session.",
         category: "Events",
-        slug: "govtech-policy-roundtable-abuja"
     },
     {
         id: "4",
@@ -1213,109 +1201,5 @@ export const dealsAndAnnouncementsArray = [
         title: "Open data portal now live for six states",
         description: "Public budget and procurement datasets are now searchable and downloadable, with four more states expected by year-end.",
         category: "Updates",
-        slug: "open-data-portal-live"
     },
 ];
-
-// export const mockInterviews = [
-//     {
-//         id: "1",
-//         title: "Dr. Jamilu Gajam, PhD,",
-//         subtitle: "Executive Secretary and Head of the Zamfara Information and Technology Development Agency,",
-//         quote: "Infrastructure alone cannot create a sustainable digital economy",
-//         date: "Aug 2026",
-//         image: "/images/ZM.png",
-//         category: "Q&A",
-//         slug: "dr-jamilu-gajam"
-//     },
-//     {
-//         id: "2",
-//         title: "Aminu Ibrahim, MSc,",
-//         subtitle: "Director of Digital Services & Public Innovation, NITDA,",
-//         quote: "Citizen trust is built through transparent and accessible e-governance systems",
-//         date: "Jul 2026",
-//         image: "/images/AM.jpeg",
-//         category: "Video",
-//         slug: "aminu-ibrahim"
-//     },
-//     {
-//         id: "3",
-//         title: "Dr. Bosun Tijani,",
-//         subtitle: "Minister of Communications, Innovation and Digital Economy,",
-//         quote: "Empowering public servants with technology is essential for national growth",
-//         date: "Jun 2026",
-//         image: "/images/BT.png",
-//         category: "Audio",
-//         slug: "dr-bosun-tijani"
-//     },
-//     {
-//         id: "4",
-//         title: "Kashifu Inuwa Abdullahi,",
-//         subtitle: "Director General, National Information Technology Development Agency,",
-//         quote: "Designing digital public infrastructure with security at its core",
-//         date: "May 2026",
-//         image: "/images/KI.jpeg",
-//         category: "Govtech Originals",
-//         slug: "kashifu-inuwa"
-//     },
-//     {
-//         id: "5",
-//         title: "Engr. Aliyu Aziz,",
-//         subtitle: "Former Director General / CEO, National Identity Management Commission,",
-//         quote: "Digital identity remains the foundation of effective public service delivery",
-//         date: "Apr 2026",
-//         image: "/images/AO.png",
-//         category: "Q&A",
-//         slug: "aliyu-aziz"
-//     },
-//     {
-//         id: "6",
-//         title: "Gbenga Sesan,",
-//         subtitle: "Executive Director, Paradigm Initiative,",
-//         quote: "Inclusive digital policy must protect civic rights and digital inclusion",
-//         date: "Mar 2026",
-//         image: "/images/GA.jpeg",
-//         category: "Video",
-//         slug: "gbenga-sesan"
-//     },
-//     {
-//         id: "7",
-//         title: "Dr. Yemi Kale,",
-//         subtitle: "Group Chief Economist and Head of Research,",
-//         quote: "Data accuracy drives sustainable policy decisions across public sectors",
-//         date: "Feb 2026",
-//         image: "/images/DA.jpeg",
-//         category: "Govtech Originals",
-//         slug: "yemi-kale"
-//     },
-//     {
-//         id: "8",
-//         title: "Fatima Abubakar,",
-//         subtitle: "Head of Civic Innovation & Tech Policy, BPSR,",
-//         quote: "Collaborative tech ecosystems transform bureaucratic workflows",
-//         date: "Jan 2026",
-//         image: "/images/EG.jpeg",
-//         category: "Audio",
-//         slug: "fatima-abubakar"
-//     },
-//     {
-//         id: "9",
-//         title: "Dr. Salisu Koko,",
-//         subtitle: "Senior Advisor on Public Sector Modernization,",
-//         quote: "Legacy systems must be upgraded to meet modern cybersecurity standards",
-//         date: "Dec 2025",
-//         image: "/images/SO.jpeg",
-//         category: "Q&A",
-//         slug: "salisu-koko"
-//     },
-//     {
-//         id: "10",
-//         title: "Hassan Nuhu,",
-//         subtitle: "Lead Enterprise Architect, Govtech Africa,",
-//         quote: "Interoperability is the key to seamless inter-agency data exchange",
-//         date: "Nov 2025",
-//         image: "/images/HN.jpeg",
-//         category: "Govtech Originals",
-//         slug: "hassan-nuhu"
-//     }
-// ];

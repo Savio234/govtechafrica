@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./DealsAndAnnouncementCard.module.scss";
 import { DealsAndAnnouncementCardProps } from "@/interfaces";
 
-const DealsAndAnnouncementCard = ({ date, tag, tagType, title, description, slug}: DealsAndAnnouncementCardProps) => {
+const DealsAndAnnouncementCard = ({ date, tag, tagType, title, description}: DealsAndAnnouncementCardProps) => {
     const getTagClass = () => {
         const type = (tagType || tag).toLowerCase();
         if (type.includes("deadline")) return styles.badge_deadline;
@@ -21,13 +21,7 @@ const DealsAndAnnouncementCard = ({ date, tag, tagType, title, description, slug
                         {tag.toUpperCase()}
                     </span>
                 </div>
-                {slug ? (
-                    // <Link href={`/insights/${slug}`}>
-                        <h2 className={styles.title}>{title}</h2>
-                    // </Link>
-                ) : (
-                    <h2 className={styles.title}>{title}</h2>
-                )}
+                <h2 className={styles.title}>{title}</h2>
                 <p className={styles.description}>{description}</p>
             </article>
         </div>
