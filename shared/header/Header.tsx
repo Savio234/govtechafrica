@@ -182,7 +182,13 @@ const LinkItem = ({
 						{link.subMenu.map((subMenu: NavLinkSub, index: number) => (
 							<div data-type={subMenu?.id} className={styles.subMenu_navlist} key={index}>
 								{subMenu.href ? (
-									<Link href={subMenu.href} className={styles.subMenu_link} onClick={() => handleScroll(subMenu.id)} onMouseEnter={() => setShowList(undefined)}>
+									<Link href={subMenu.href} className={styles.subMenu_link}
+										onClick={() => {
+											handleScroll(subMenu.id);
+											setCollapsed(true);
+										}}
+										onMouseEnter={() => setShowList(undefined)}
+									>
 										<h2 data-label={subMenu.label}>{subMenu.label}</h2>
 										{subMenu.icon && (
 											<div className={styles.subMenu_icon}>

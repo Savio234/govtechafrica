@@ -40,11 +40,11 @@ const ResearchView = () => {
                 <div className={styles.divider} />
 
                 <div className={styles.filter_row}>
-                    {categories.map((cat) => (
+                    {categories.map((cat, index) => (
                         <button key={cat} className={`${styles.filter_btn} ${activeCategory === cat ? styles.active : ""}`}
                             onClick={() => setActiveCategory(cat)}
                         >
-                            {cat}
+                            {index === 0 ? cat : `${cat}s`}
                         </button>
                     ))}
                 </div>
