@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "..";
 import { TechnologyCardProps } from "@/interfaces";
 import { motion } from "framer-motion";
@@ -9,9 +9,16 @@ import styles from "./TechnologyCard.module.scss";
 
 const TechnologyCard = ({ technology, index, cardType }: TechnologyCardProps) => {
     const [isHover, setIsHover] = useState<boolean>(false);
-    const currentUrl = new URL(window?.location?.href);
-    const originUrl = currentUrl?.origin;
-    const isTestLink = originUrl === "https://govtechafricabeta.netlify.app" || originUrl === "http://localhost:3000"
+    const [isTestLink, setIsTestLink] = useState<boolean>(false);
+
+    useEffect(() => {
+        const originUrl = window.location.origin;
+        setIsTestLink(
+            originUrl === "https://govtechafricabeta.netlify.app" || 
+            originUrl === "http://localhost:3000"
+        );
+    }, []);
+
     const onHover = () => setIsHover(true);
     const offHover = () => setIsHover(false);
   return (
