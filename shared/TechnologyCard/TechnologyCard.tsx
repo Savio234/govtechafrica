@@ -23,8 +23,7 @@ const TechnologyCard = ({ technology, index, cardType }: TechnologyCardProps) =>
     const offHover = () => setIsHover(false);
   return (
     <motion.div id={technology.id} className={styles.card} data-active={isHover} data-card={technology?.id}
-        onMouseEnter={onHover} onMouseLeave={offHover} 
-        // style={{ y, opacity }}
+        onMouseEnter={onHover} onMouseLeave={offHover}
     >
         <div className={styles.card_content}>
             <div className={styles.details}>
