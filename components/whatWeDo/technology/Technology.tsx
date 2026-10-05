@@ -56,7 +56,7 @@ const Technology = () => {
 						{technologies.slice(3).map((technology: TechnologyProps, index: number) => (
 							<TechnologyCard key={technology?.id} scrollYProgress={scrollYProgress}
 								cardType="technology" index={index} 
-								technology={technology} 
+								technology={technology}
 							/>
 						))}
 					</div>

@@ -9,23 +9,11 @@ import styles from "./TechnologyCard.module.scss";
 
 const TechnologyCard = ({ technology, index, cardType }: TechnologyCardProps) => {
     const [isHover, setIsHover] = useState<boolean>(false);
-    // const getIndex = index + 1
+    const currentUrl = new URL(window?.location?.href);
+    const originUrl = currentUrl?.origin;
+    const isTestLink = originUrl === "https://govtechafricabeta.netlify.app" || originUrl === "http://localhost:3000"
     const onHover = () => setIsHover(true);
     const offHover = () => setIsHover(false);
-    // const start = 0 + getIndex * 0.1;
-    // const end = start + 0.2;
-    // const rawY = useTransform(scrollYProgress, [start, end], [300, 0]);
-    // const y = useSpring(rawY, {
-    //     stiffness: 100,
-    //     damping: 20,
-    //     mass: 0.5
-    // });
-    // const rawOpacity = useTransform(scrollYProgress, [start, end], [0.3, 1]);
-    // const opacity = useSpring(rawOpacity, {
-    //     stiffness: 100,
-    //     damping: 20,
-    //     mass: 0.5
-    // });
   return (
     <motion.div id={technology.id} className={styles.card} data-active={isHover} data-card={technology?.id}
         onMouseEnter={onHover} onMouseLeave={offHover} 
@@ -41,14 +29,14 @@ const TechnologyCard = ({ technology, index, cardType }: TechnologyCardProps) =>
             </div>
         </div>
 
-        {(cardType === 'technology') && (
+        {(cardType === 'technology' && isTestLink) && (
             <Link href={technology.href}>
                 <Button className={styles.button}>
                     {index === 0 ? "Explore" : "Read more"}
                 </Button>
             </Link>
         )}
-        {(cardType === 'consulting') && (
+        {(cardType === 'consulting' && isTestLink) && (
             <Link href={technology.href}>
                 <Button className={styles.button}>
                     Explore
@@ -61,14 +49,14 @@ const TechnologyCard = ({ technology, index, cardType }: TechnologyCardProps) =>
                     <h3>{technology.title}</h3>
                     <p>{technology.description}</p>
                 </div>
-                {cardType === 'technology' && (
+                {(cardType === 'technology' && isTestLink) && (
                     <Link href={technology.href}>
                         <Button className={styles.button_mob}>
                             {index === 0 ? "Explore" : "Read more"}
                         </Button>
                     </Link>
                 )}
-                {cardType === 'consulting' && (
+                {(cardType === 'consulting' && isTestLink) && (
                     <Link href={technology.href}>
                         <Button className={styles.button_mob}>
                             Explore
