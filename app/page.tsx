@@ -80,7 +80,7 @@ export const metadata: Metadata = {
 		shortcut: 'https://govtechafrica.com/svgs/favicon.svg',
 		apple: 'https://govtechafrica.com/svgs/favicon.svg',
 	},
-	manifest: 'https://govtechafrica.com/site.webmanifest',
+	// manifest: 'https://govtechafrica.com/site.webmanifest',
 	verification: {
 		google: "[G-2CVY7FBLX3]",
 	},
