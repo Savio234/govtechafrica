@@ -59,7 +59,7 @@
         .header_row {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             gap: 1.6rem;
             // margin-bottom: 0.6rem;
             .name {
@@ -102,8 +102,8 @@
                 width: 85%;
             }
             @include screenMax("mobile") {
-                font-size: 1.6rem;
-                line-height: 2.4rem;
+                font-size: 1.4rem;
+                line-height: 2rem;
                 margin-bottom: 0.8rem;
                 width: 100%;
             }
