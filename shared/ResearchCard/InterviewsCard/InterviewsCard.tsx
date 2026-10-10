@@ -18,9 +18,10 @@ export interface InterviewsCardProps {
     category?: string;
 }
 
-const InterviewsCard = ({ title, subtitle, quote, description, date, publishedAt, image, slug, role }: InterviewsCardProps) => {
-    const displaySubtitle = subtitle || role || "";
-    const displayQuote = quote || description || "";
+const InterviewsCard = ({ title, subtitle, date, publishedAt, image, slug }: InterviewsCardProps) => {
+    // const displaySubtitle = subtitle || role || "";
+    const displaySubtitle = subtitle;
+    // const displayQuote = quote || description || "";
     const displayDate = date || publishedAt || "";
     const getFormattedDate = formatDate(displayDate)
     const dateFormat = getFormattedDate?.slice(0, 3) + " " + getFormattedDate?.slice(-4);
@@ -35,11 +36,17 @@ const InterviewsCard = ({ title, subtitle, quote, description, date, publishedAt
                 </div>
                 <div className={styles.content}>
                     <div className={styles.header_row}>
-                        <h2 className={styles.name}>{title}</h2>
+                        {/* <h2 className={styles.name}>{title}</h2> */}
+                        <h2 className={styles.name}>Interview - Govtech Africa Insights</h2>
                         {displayDate && <span className={styles.date}>{dateFormat}</span>}
                     </div>
-                    {displaySubtitle && <p className={styles.role}>{displaySubtitle}</p>}
-                    {displayQuote && <p className={styles.quote}>{`"${displayQuote}"`}</p>}
+                    {displaySubtitle && (
+                        <p className={styles.role}>
+                            {displaySubtitle}
+                        </p>
+                    )}
+                    <p className={styles.quote}>Read More</p>
+                    {/* {displayQuote && <p className={styles.quote}>{`"${displayQuote}"`}</p>} */}
                 </div>
             </article>
             

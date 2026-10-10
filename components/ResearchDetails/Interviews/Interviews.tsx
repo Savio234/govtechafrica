@@ -27,7 +27,7 @@ const Interviews = ({ blog, contentToShow }: InterviewsProps) => {
                 <div className={styles.top_bar_container}>
                     <Link href="/interviews" className={styles.back_link}>
                         <div className={styles.chevron}>
-                            <Image alt="Back" fill src="/svgs/chevron_light.svg" />
+                            <Image alt="Back" fill src="/svgs/chevron.svg" />
                         </div>
                         <span>Interviews feed</span>
                     </Link>

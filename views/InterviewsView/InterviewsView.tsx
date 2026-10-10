@@ -62,8 +62,8 @@ const InterviewsView = () => {
 
                 <div className={styles.list_container}>
                     {displayedInterviews.map((item, index) => (
-                        <InterviewsCard key={index} title={item.title} subtitle={item?.role?.[0]} quote={item.description}
-                            date={item.date} slug={item.slug} publishedAt={item.date}
+                        <InterviewsCard key={index} title={item.title} role={item?.role?.[0]} quote={item.description}
+                            date={item.date} slug={item.slug} publishedAt={item.date} subtitle={item?.downloadText}
                             image={item?.thumbnail?.fields?.file?.url ? `https:${item?.thumbnail?.fields?.file?.url}` : "/images/ZM.png"}
                         />
                     ))}

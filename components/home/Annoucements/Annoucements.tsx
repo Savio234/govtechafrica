@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Annoucements.module.scss";
+import { Button } from "@/shared";
 
 export const PauseIcon = () => {
     return (
@@ -67,7 +68,7 @@ const announcementData: AnnouncementSlide[] = [
     },
 ];
 
-const AUTO_SLIDE_INTERVAL = 9000;
+const AUTO_SLIDE_INTERVAL = 7000;
 
 const Annoucements = () => {
     const annoucementRef = useRef<HTMLDivElement>(null);
@@ -117,9 +118,14 @@ const Annoucements = () => {
     return (
         <div ref={annoucementRef} className={styles.announcements_wrapper}>
             <motion.div style={{ y, opacity }} className={styles.announcements_container}>
-                <div className={styles.announcements_section} onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)} aria-label="Announcements and News Carousel"
-                >
+                <div className={styles.announcements_section} aria-label="Announcements and News Carousel">
+                    <div className={styles.inside_header}>
+                        <h2>Inside Govtech Africa</h2>
+                        <Button className={styles.explore_btn}>
+                            Explore More
+                        </Button>
+                        {/* <Link href="/insights/news">Explore More</Link> */}
+                    </div>
                     <div className={styles.carousel_wrapper}>
                         <div className={styles.slider_track}
                             style={{
@@ -129,7 +135,8 @@ const Annoucements = () => {
                             {announcementData.map((item, index) => {
                                 const isActive = index === currentIndex;
                                 return (
-                                    <div key={item.id}
+                                    <div key={item.id} onMouseEnter={() => isActive ? setIsHovered(true) : null}
+                                        onMouseLeave={() => isActive ? setIsHovered(false) : null}
                                         className={`${styles.slide_item} ${isActive ? styles.active_slide : ""}`}
                                     >
                                         <Link href={`/insights/news/${item.slug}`} className={styles.slide_link}
