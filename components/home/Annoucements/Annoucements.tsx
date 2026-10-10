@@ -1,24 +1,73 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Annoucements.module.scss";
 
-const PhotoPlaceholder = ({ className = "" }: { className?: string }) => (
-    <div className={`${styles.photo_placeholder} ${className}`}>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={styles.icon}
-        >
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <polyline points="21 15 16 10 5 21" />
+export const PauseIcon = () => {
+    return (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="6 4 20 12 6 20 6 4" />
         </svg>
-        <span className={styles.text}>PHOTO / VIDEO</span>
-    </div>
-);
+    )
+}
+export const PlayIcon = () => {
+    return (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="4" width="4" height="16" rx="1" />
+            <rect x="14" y="4" width="4" height="16" rx="1" />
+        </svg>
+    )
+}
+export interface AnnouncementSlide {
+    id: string;
+    slug: string;
+    title: string;
+    description: string;
+    image: string;
+    category?: string;
+}
+
+const announcementData: AnnouncementSlide[] = [
+    {
+        id: "1",
+        slug: "national-digital-id-rollout-phase-2",
+        title: "National Digital ID rollout enters Phase 2 across sub-national governments",
+        description: "Govtech Africa partners with regional agencies to expand biometric enrollment and decentralized digital registries to over 40 million citizens.",
+        image: "/images/collab.png",
+    },
+    {
+        id: "2",
+        slug: "scaling-ai-to-rewire-everyday-public-work",
+        title: "Govtech Africa scales AI to rewire everyday public sector workflows",
+        description: "Putting public servants at the center of AI ambition—accelerating cross-agency data harmonization, automated citizen routing, and policy intelligence.",
+        image: "/images/article_1.jpeg",
+    },
+    {
+        id: "3",
+        slug: "cross-border-payment-integration-pilot",
+        title: "Cross-border public payment interoperability pilot launches in West Africa",
+        description: "Accelerating seamless treasury single account integrations and cross-border settlement channels for public service delivery across 6 partner nations.",
+        image: "/images/tech.png",
+    },
+    {
+        id: "4",
+        slug: "securing-sovereign-infrastructure-zero-trust",
+        title: "Securing sovereign infrastructure with next-gen zero-trust architecture",
+        description: "A comprehensive framework safeguarding government cloud services, ministerial networks, and critical national databases against cyber threats.",
+        image: "/images/secure_systems.png",
+    },
+    {
+        id: "5",
+        slug: "pan-african-govtech-summit-policy-breakthroughs",
+        title: "Pan-African Govtech Summit delivers historic regional data exchange pact",
+        description: "Public sector leaders and technology innovators establish unified data governance and digital public infrastructure standards in Abuja.",
+        image: "/images/driver_1.jpg",
+    },
+];
+
+const AUTO_SLIDE_INTERVAL = 9000;
 
 const Annoucements = () => {
     const annoucementRef = useRef<HTMLDivElement>(null);
@@ -26,6 +75,14 @@ const Annoucements = () => {
         target: annoucementRef,
         offset: ["start end", "end center"],
     });
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [isAutoPlayPaused, setIsAutoPlayPaused] = useState<boolean>(false);
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+    const totalSlides = announcementData.length;
+
+    const handleNext = useCallback(() => {
+        setCurrentIndex((prev) => (prev + 1) % totalSlides);
+    }, [totalSlides]);
 
     const rawY = useTransform(scrollYProgress, [0, 0.2], [100, 0]);
     const y = useSpring(rawY, {
@@ -39,123 +96,146 @@ const Annoucements = () => {
         damping: 20,
         mass: 0.5,
     });
+    const handlePrev = useCallback(() => {
+        setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+    }, [totalSlides]);
+
+    const togglePlayPause = () => {
+        setIsAutoPlayPaused((prev) => !prev);
+    };
+
+    useEffect(() => {
+        if (isAutoPlayPaused || isHovered) return;
+
+        const timer = setInterval(() => {
+            handleNext();
+        }, AUTO_SLIDE_INTERVAL);
+
+        return () => clearInterval(timer);
+    }, [isAutoPlayPaused, isHovered, handleNext]);
 
     return (
-        <div ref={annoucementRef} className={styles.annoucements_section}>
-            <motion.div style={{ opacity, y }} className={styles.container}>
-                <div className={styles.header_row}>
-                    <div className={styles.header_left}>
-                        <div className={styles.eyebrow}>
-                            <span className={styles.dash}>—</span>
-                            <span>INSIDE GOVTECH AFRICA</span>
+        <div ref={annoucementRef} className={styles.announcements_wrapper}>
+            <motion.div style={{ y, opacity }} className={styles.announcements_container}>
+                <div className={styles.announcements_section} onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)} aria-label="Announcements and News Carousel"
+                >
+                    <div className={styles.carousel_wrapper}>
+                        <div className={styles.slider_track}
+                            style={{
+                                transform: `translateX(calc(-${currentIndex} * (var(--slide-width) + var(--slide-gap))))`,
+                            }}
+                        >
+                            {announcementData.map((item, index) => {
+                                const isActive = index === currentIndex;
+                                return (
+                                    <div key={item.id}
+                                        className={`${styles.slide_item} ${isActive ? styles.active_slide : ""}`}
+                                    >
+                                        <Link href={`/insights/news/${item.slug}`} className={styles.slide_link}
+                                            tabIndex={isActive ? 0 : -1}
+                                            aria-label={item.title}
+                                        >
+                                            <div className={styles.image_col}>
+                                                <div className={styles.image_wrapper}>
+                                                    <Image
+                                                        src={item.image}
+                                                        alt={item.title}
+                                                        fill
+                                                        priority={index === 0}
+                                                        className={styles.slide_image}
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className={styles.content_col}>
+                                                <h3 className={styles.slide_title}>{item.title}</h3>
+                                                <p className={styles.slide_description}>
+                                                    {item.description}
+                                                </p>
+
+                                                <div className={styles.read_more_cta}>
+                                                    <span className={styles.read_more_text}>Read more</span>
+                                                    <span className={styles.arrow_badge} aria-hidden="true">
+                                                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <path d="M6 3.5L10.5 8L6 12.5" stroke="currentColor" strokeWidth="2.4"
+                                                                strokeLinecap="round" strokeLinejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                );
+                            })}
                         </div>
-                        <h2 className={styles.title}>
-                            Updates, announcements, and everything in between.
-                        </h2>
-                        <p className={styles.subtitle}>
-                            One place for policy milestones, event recaps, interviews, and everything happening across the
-                            Govtech Africa ecosystem.
-                        </p>
                     </div>
 
-                    <div className={styles.header_right}>
-                        <div className={styles.megaphone_wrapper}>
-                            <Image
-                                src="/svgs/megaphone.svg"
-                                alt="Megaphone"
-                                width={90}
-                                height={90}
-                                className={styles.megaphone_icon}
-                            />
-                        </div>
-                        <Link href="/inside-govtech-africa" className={styles.view_all_btn}>
-                            <span>View All Updates</span>
-                            <span className={styles.arrow}>→</span>
-                        </Link>
-                    </div>
-                </div>
+                    <div className={styles.controls_container}>
+                        <button type="button" onClick={togglePlayPause} className={styles.ctrl_btn}
+                            aria-label={isAutoPlayPaused ? "Resume carousel auto-play" : "Pause carousel auto-play"}
+                            title={isAutoPlayPaused ? "Play" : "Pause"}
+                        >
+                            {(isAutoPlayPaused || isHovered) ? <PauseIcon /> : <PlayIcon />}
+                        </button>
 
-                <div className={styles.cards_grid}>
-                    <div className={styles.featured_card}>
-                        <div className={styles.badge_wrapper}>
-                            <span className={`${styles.badge} ${styles.badge_roundtable}`}>
-                                ROUNDTABLE
-                            </span>
-                        </div>
+                        <div className={styles.nav_group}>
+                            <button
+                                type="button"
+                                onClick={handlePrev}
+                                className={styles.ctrl_btn}
+                                aria-label="Previous announcement"
+                                title="Previous"
+                            >
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <line x1="19" y1="12" x2="5" y2="12" />
+                                    <polyline points="12 19 5 12 12 5" />
+                                </svg>
+                            </button>
 
-                        <div className={styles.featured_placeholder}>
-                            <PhotoPlaceholder />
-                        </div>
-
-                        <div className={styles.card_footer}>
-                            <h3 className={styles.card_title}>
-                                Inside the room: how the National Govtech Policy passed in Abuja
-                            </h3>
-                            <div className={styles.meta_info}>
-                                <span>Aug 28, 2026</span>
-                                <span className={styles.dot}>•</span>
-                                <span>6 min read</span>
+                            <div className={styles.counter_display} aria-live="polite">
+                                {currentIndex + 1}/{totalSlides}
                             </div>
-                        </div>
-                    </div>
 
-                    <div className={styles.side_grid}>
-                        <div className={styles.side_card}>
-                            <div className={styles.side_card_top}>
-                                <span className={`${styles.badge} ${styles.badge_update}`}>
-                                    UPDATE
-                                </span>
-                                <PhotoPlaceholder className={styles.compact_placeholder} />
-                            </div>
-                            <h4 className={styles.side_card_title}>
-                                National Digital ID rollout enters Phase 2
-                            </h4>
-                        </div>
-
-                        <div className={styles.side_card}>
-                            <div className={styles.side_card_top}>
-                                <span className={`${styles.badge} ${styles.badge_event}`}>
-                                    EVENT
-                                </span>
-                                <PhotoPlaceholder className={styles.compact_placeholder} />
-                            </div>
-                            <h4 className={styles.side_card_title}>
-                                Policy Roundtable returns to Abuja, Nov 12–14
-                            </h4>
-                        </div>
-
-                        <div className={styles.side_card}>
-                            <div className={styles.side_card_top}>
-                                <span className={`${styles.badge} ${styles.badge_event}`}>
-                                    EVENT
-                                </span>
-                                <PhotoPlaceholder className={styles.compact_placeholder} />
-                            </div>
-                            <h4 className={styles.side_card_title}>
-                                Policy Roundtable returns to Abuja, Nov 12–14
-                            </h4>
-                        </div>
-
-                        <div className={styles.side_card}>
-                            <div className={styles.side_card_top}>
-                                <span className={`${styles.badge} ${styles.badge_deadline}`}>
-                                    DEADLINE
-                                </span>
-                                <PhotoPlaceholder className={styles.compact_placeholder} />
-                            </div>
-                            <h4 className={styles.side_card_title}>
-                                Civic-tech grant applications close Sept 30
-                            </h4>
+                            <button
+                                type="button"
+                                onClick={handleNext}
+                                className={styles.ctrl_btn}
+                                aria-label="Next announcement"
+                                title="Next"
+                            >
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                    <polyline points="12 5 19 12 12 19" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
             </motion.div>
-
-            <div className={styles.wave_bg} aria-hidden="true">
-                <div className={styles.wave}>
-                    <Image fill alt="wave" src="/svgs/wave_lines.svg" />
-                </div>
-            </div>
         </div>
     );
 };

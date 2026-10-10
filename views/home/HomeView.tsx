@@ -1,7 +1,7 @@
 import React from "react";
 import { Hero, OpenCookiesModal } from "@/shared";
-// import { GrowthV2, MissionV2, Research, CenterPieceV2, Experience, NPGR, IntroToFulcrum, InterviewSection, Annoucements } from "@/components/home";
-import { GrowthV2, MissionV2, Research, CenterPieceV2, Experience, NPGR, IntroToFulcrum, InterviewSection } from "@/components/home";
+import { GrowthV2, MissionV2, Research, CenterPieceV2, Experience, NPGR, IntroToFulcrum, InterviewSection, Annoucements } from "@/components/home";
+// import { GrowthV2, MissionV2, Research, CenterPieceV2, Experience, NPGR, IntroToFulcrum, InterviewSection } from "@/components/home";
 import { Governance } from "@/components/whoWeAre";
 import styles from "./HomeView.module.scss";
 
@@ -27,7 +27,7 @@ const HomeView = () => {
 			<NPGR />
 			<IntroToFulcrum type="home" />
 			<InterviewSection />
-			{/* <Annoucements /> */}
+			<Annoucements />
 			<OpenCookiesModal />
 		</React.Fragment>
 	);

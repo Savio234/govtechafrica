@@ -12,7 +12,6 @@ interface ReportsProps {
 }
 
 const Reports = ({ blog, contentToShow }: ReportsProps) => {
-
     const isAsideVisible = blog?.tableOfContent && blog?.tableOfContent?.length > 0;
     return (
         <article className={styles.backgrounders}>
@@ -68,8 +67,6 @@ const Reports = ({ blog, contentToShow }: ReportsProps) => {
 
 
             </header>
-
-            {/* <div className={styles.divider}></div> */}
 
             <section className={styles.details_content}>
                 <div data-aside={isAsideVisible} className={styles.main_layout}>

@@ -1,0 +1,364 @@
+@import "@/styles/imports";
+
+.intro_section {
+    width: 100%;
+    background-color: #000000;
+    position: relative;
+    padding: 10rem 3.6rem 14rem!important;
+    overflow: hidden;
+
+    @include screenMax("tablet") {
+        padding: 8rem 2.4rem 10rem!important;
+    }
+
+    @include screenMax("mobile") {
+        padding: 4rem 1.6rem 6.4rem!important;
+    }
+
+    .container {
+        max-width: $max-width;
+        margin-inline: auto;
+        position: relative;
+        z-index: 2;
+
+        .split_grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 6.4rem;
+            align-items: center;
+
+            @media screen and (max-width: 1200px) {
+                grid-template-columns: 1fr 1.1fr;
+                gap: 4.8rem;
+            }
+
+            @include screenMax("tablet") {
+                grid-template-columns: 1fr;
+                gap: 4.8rem;
+            }
+
+            .text_column {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                .purple_bar {
+                    width: 3.6rem;
+                    height: 0.35rem;
+                    background-color: #00BF4D;
+                    border-radius: 0.1rem;
+                    margin-bottom: 2.8rem;
+
+                    @include screenMax("mobile") {
+                        margin-bottom: 2rem;
+                    }
+                }
+
+                .headline {
+                    font-family: $font-gothic-bold;
+                    font-size: 4.6rem;
+                    line-height: 1.2;
+                    color: #FFFFFF;
+                    font-weight: 700;
+                    margin-bottom: 2.8rem;
+                    letter-spacing: -0.02em;
+
+                    @include screenMax("desktop-sm") {
+                        font-size: 3.8rem;
+                    }
+
+                    @include screenMax("tablet") {
+                        font-size: 3.2rem;
+                    }
+
+                    @include screenMax("mobile") {
+                        font-size: 2.6rem;
+                        margin-bottom: 2rem;
+                    }
+                }
+
+                .description {
+                    font-family: $font;
+                    font-size: 1.6rem;
+                    line-height: 2.4rem;
+                    color: #D1D5DB;
+                    font-weight: 400;
+
+                    @include screenMax("mobile") {
+                        font-size: 1.4rem;
+                        line-height: 2rem;
+                    }
+                }
+            }
+
+            .media_column {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                .dashboard_card {
+                    width: 100%;
+                    background: linear-gradient(135deg, #FAF7FF 0%, #FFFFFF 50%, #F5F0FF 100%);
+                    border-radius: 1.8rem;
+                    padding: 2.8rem;
+                    box-shadow: 0 2.4rem 6.4rem rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+                    color: #1F2937;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2.4rem;
+
+                    @include screenMax("mobile") {
+                        padding: 2rem 1.6rem;
+                        border-radius: 1.4rem;
+                        gap: 1.8rem;
+                    }
+
+                    .card_header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding-bottom: 1.6rem;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+                        .brand_indicator {
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+
+                            .dot_avatar {
+                                width: 2.4rem;
+                                height: 2.4rem;
+                                border-radius: 50%;
+                                background-color: #00BF4D;
+                                color: #FFFFFF;
+                                font-size: 1.2rem;
+                                font-weight: 700;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+
+                            .agency_name {
+                                font-family: $font;
+                                font-size: 1.25rem;
+                                font-weight: 600;
+                                color: #4B5563;
+                            }
+                        }
+
+                        .pulse_badge {
+                            font-family: $font;
+                            font-size: 1.1rem;
+                            font-weight: 600;
+                            color: #00BF4D;
+                            background-color: rgba(124, 58, 237, 0.08);
+                            padding: 0.4rem 1rem;
+                            border-radius: 999rem;
+                        }
+                    }
+
+                    .card_body {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2rem;
+
+                        .greeting_row {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 1.6rem;
+
+                            @include screenMax("mobile") {
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
+
+                            .greeting_text {
+                                display: flex;
+                                align-items: flex-start;
+                                gap: 1rem;
+
+                                .sparkle_icon {
+                                    color: #00BF4D;
+                                    font-size: 1.6rem;
+                                    margin-top: 0.2rem;
+                                }
+
+                                p {
+                                    font-family: $font;
+                                    font-size: 1.45rem;
+                                    line-height: 1.55;
+                                    color: #374151;
+
+                                    strong {
+                                        color: #111827;
+                                    }
+
+                                    .highlight_text {
+                                        color: #00BF4D;
+                                        font-weight: 600;
+                                    }
+                                }
+                            }
+
+                            .quick_action_btn {
+                                background-color: #111827;
+                                color: #FFFFFF;
+                                font-family: $font;
+                                font-size: 1.25rem;
+                                font-weight: 600;
+                                padding: 0.8rem 1.6rem;
+                                border-radius: 999rem;
+                                border: none;
+                                cursor: pointer;
+                                white-space: nowrap;
+                                transition: background-color 0.2s ease;
+
+                                &:hover {
+                                    background-color: #000000;
+                                }
+                            }
+                        }
+
+                        .alerts_list {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+
+                            .alert_item {
+                                background-color: #FFFFFF;
+                                border: 1px solid rgba(0, 0, 0, 0.06);
+                                border-radius: 1.2rem;
+                                padding: 1.4rem 1.6rem;
+                                display: flex;
+                                align-items: center;
+                                gap: 1.4rem;
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+                                transition: all 0.2s ease;
+
+                                &:hover {
+                                    border-color: rgba(147, 51, 234, 0.3);
+                                    box-shadow: 0 4px 1.2rem rgba(147, 51, 234, 0.06);
+                                }
+
+                                .alert_tag_critical {
+                                    background-color: rgba(239, 68, 68, 0.1);
+                                    color: #DC2626;
+                                    font-size: 1rem;
+                                    font-weight: 700;
+                                    font-family: $font;
+                                    padding: 0.35rem 0.8rem;
+                                    border-radius: 0.4rem;
+                                    letter-spacing: 0.08em;
+                                    flex-shrink: 0;
+                                }
+
+                                .alert_tag_warning {
+                                    background-color: rgba(245, 158, 11, 0.1);
+                                    color: #D97706;
+                                    font-size: 1rem;
+                                    font-weight: 700;
+                                    font-family: $font;
+                                    padding: 0.35rem 0.8rem;
+                                    border-radius: 0.4rem;
+                                    letter-spacing: 0.08em;
+                                    flex-shrink: 0;
+                                }
+
+                                .alert_details {
+                                    flex: 1;
+                                    min-width: 0;
+
+                                    h5 {
+                                        font-family: $font;
+                                        font-size: 1.35rem;
+                                        font-weight: 600;
+                                        color: #000000;
+                                        margin-bottom: 0.2rem;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                    }
+
+                                    p {
+                                        font-family: $font;
+                                        font-size: 1.2rem;
+                                        color: #6B7280;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                    }
+                                }
+
+                                .alert_chevron {
+                                    color: #9CA3AF;
+                                    font-size: 1.3rem;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+
+                        .card_footer {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding-top: 1.6rem;
+                            border-top: 1px solid rgba(0, 0, 0, 0.06);
+                            gap: 1.6rem;
+                            flex-wrap: wrap;
+
+                            .metric_item {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.2rem;
+
+                                .metric_label {
+                                    font-family: $font;
+                                    font-size: 1.1rem;
+                                    color: #6B7280;
+                                }
+
+                                .metric_value {
+                                    font-family: $font-gothic-bold;
+                                    font-size: 1.7rem;
+                                    color: #111827;
+                                    font-weight: 700;
+                                }
+
+                                .metric_value_green {
+                                    font-family: $font-gothic-bold;
+                                    font-size: 1.7rem;
+                                    color: #16A34A;
+                                    font-weight: 700;
+                                }
+                            }
+
+                            .agent_active_pill {
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 0.8rem;
+                                background: linear-gradient(135deg, #00BF4D 0%, #00BF4D 100%);
+                                padding: 0.8rem 1.6rem;
+                                border-radius: 999rem;
+                                box-shadow: 0 4px 1.4rem rgba(0, 191, 77, 0.3);
+                                span {
+                                    color: #FFFFFF;
+                                    font-family: $font;
+                                    font-size: 1.2rem;
+                                    font-weight: 600;
+                                }
+                                .gear_icon {
+                                    font-size: 1.2rem;
+                                }
+                                @include screenMax("mobile") {
+                                    width: 100%;
+                                    justify-content: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

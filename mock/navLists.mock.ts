@@ -10,116 +10,116 @@ export const navLinks: NavLink[] = [
 			{
 				label: "solutions",
 				icon: "/svgs/arrow.svg",
-				// href: "https://fulcrum.govtechafrica.com",
+				href: "/what-we-do/solutions",
 				id: "solutions",
-				menu: [
-					{
-						label: "Fulcrum",
-						href: "https://fulcrum.govtechafrica.com",
-						id: "fulcrum",
-						icon: "",
-						external: true
-					},
-					{
-						label: "Atlas",
-						href: "https://atlas.govtechafrica.com",
-						id: "atlas",
-						icon: "",
-						external: true
-					},
-					// {
-					// 	label: "Cloud Services",
-					// 	href: "/cloud-services",
-					// 	id: "cloud",
-					// 	icon: "/svgs/link-user.svg",
-					// 	external: false
-					// },
-					// {
-					// 	label: "Data and AI",
-					// 	href: "/data-and-ai",
-					// 	id: "data",
-					// 	icon: "/svgs/link-ai.svg",
-					// 	external: false
-					// },
-					// {
-					// 	label: "Network Infrastructure Design & Implementation",
-					// 	href: "/network-infrastructure",
-					// 	id: "network",
-					// 	icon: "/svgs/link-user.svg",
-					// 	external: false
-					// },
-					// {
-					// 	label: "Web3 & Blockchain Technology",
-					// 	href: "/web3-and-blockchain",
-					// 	id: "web3",
-					// 	icon: "/svgs/link-user.svg",
-					// 	external: false
-					// },
-					// {
-					// 	label: "IT Support Services (Remote support & Maintenance)",
-					// 	href: "/support-services",
-					// 	id: "it",
-					// 	icon: "/svgs/link-user.svg",
-					// 	external: false
-					// }
-				]
+				// menu: [
+				// 	{
+				// 		label: "Fulcrum",
+				// 		href: "https://fulcrum.govtechafrica.com",
+				// 		id: "fulcrum",
+				// 		icon: "",
+				// 		external: true
+				// 	},
+				// 	{
+				// 		label: "Atlas",
+				// 		href: "https://atlas.govtechafrica.com",
+				// 		id: "atlas",
+				// 		icon: "",
+				// 		external: true
+				// 	},
+				// 	// {
+				// 	// 	label: "Cloud Services",
+				// 	// 	href: "/cloud-services",
+				// 	// 	id: "cloud",
+				// 	// 	icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "Data and AI",
+				// 	// 	href: "/data-and-ai",
+				// 	// 	id: "data",
+				// 	// 	icon: "/svgs/link-ai.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "Network Infrastructure Design & Implementation",
+				// 	// 	href: "/network-infrastructure",
+				// 	// 	id: "network",
+				// 	// 	icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "Web3 & Blockchain Technology",
+				// 	// 	href: "/web3-and-blockchain",
+				// 	// 	id: "web3",
+				// 	// 	icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "IT Support Services (Remote support & Maintenance)",
+				// 	// 	href: "/support-services",
+				// 	// 	id: "it",
+				// 	// 	icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// }
+				// ]
 			},
 			{
 				label: "services",
 				icon: "/svgs/arrow.svg",
-				// href: "/what-we-do",
+				href: "/what-we-do/services",
 				id: "services",
-				menu: [
-					{
-						label: "Technology ",
-						href: "/what-we-do/services#technology",
-						id: "technology",
-						// icon: "/svgs/link-user.svg",
-						external: false
-					},
-					{
-						label: "Consulting ",
-						href: "/what-we-do/services#consulting",
-						id: "consulting",
-						// icon: "/svgs/link-user.svg",
-						external: false
-					},
-					// {
-					// 	label: "Strategy Consulting & Advisory",
-					// 	href: "/strategy-consulting-and-advisory",
-					// 	id: "strategy",
-					// 	icon: "/svgs/link-user.svg",
-					// 	external: false
-					// },
-					// {
-					// 	label: "IT infrastructure procument & supply",
-					// 	href: "/infrastructure-procurement-and-supply",
-					// 	id: "infrastructure",
-					// 	icon: "/svgs/link-user.svg",
-					// 	external: false
-					// },
-					// {
-					// 	label: "IT compliance & regulatory consulting",
-					// 	href: "/compliance-and-regulatory-consulting",
-					// 	id: "compliance",
-					// 	icon: "/svgs/link-user.svg",
-					// 	external: false
-					// },
-					// {
-					// 	label: "capacity building & Trainings",
-					// 	href: "/capacity-building-and-trainings",
-					// 	id: "capacity",
-					// 	icon: "/svgs/link-ai.svg",
-					// 	external: false
-					// },
-					// {
-					// 	label: "tech events design & delivery",
-					// 	href: "/tech-events",
-					// 	id: "tech",
-					// 	icon: "/svgs/link-user.svg",
-					// 	external: false
-					// },
-				]
+				// menu: [
+				// 	// {
+				// 	// 	label: "Technology ",
+				// 	// 	href: "/what-we-do/services#technology",
+				// 	// 	id: "technology",
+				// 	// 	// icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "Consulting ",
+				// 	// 	href: "/what-we-do/services#consulting",
+				// 	// 	id: "consulting",
+				// 	// 	// icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "Strategy Consulting & Advisory",
+				// 	// 	href: "/strategy-consulting-and-advisory",
+				// 	// 	id: "strategy",
+				// 	// 	icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "IT infrastructure procument & supply",
+				// 	// 	href: "/infrastructure-procurement-and-supply",
+				// 	// 	id: "infrastructure",
+				// 	// 	icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "IT compliance & regulatory consulting",
+				// 	// 	href: "/compliance-and-regulatory-consulting",
+				// 	// 	id: "compliance",
+				// 	// 	icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "capacity building & Trainings",
+				// 	// 	href: "/capacity-building-and-trainings",
+				// 	// 	id: "capacity",
+				// 	// 	icon: "/svgs/link-ai.svg",
+				// 	// 	external: false
+				// 	// },
+				// 	// {
+				// 	// 	label: "tech events design & delivery",
+				// 	// 	href: "/tech-events",
+				// 	// 	id: "tech",
+				// 	// 	icon: "/svgs/link-user.svg",
+				// 	// 	external: false
+				// 	// },
+				// ]
 			}
 		]
 	},
@@ -596,7 +596,7 @@ export const privacyPolicyData: PrivacyPolicyProps[] = [
 		content: [
 			'Data Protection Officer, Govtech Africa Limited',
 			'Telephone: +2349139167076',
-			'Email: fortune@govtechafrica.com'
+			'Email: compliance@govtechafrica.com'
 		],
 		postContent: `You may contact the Data Protection Officer about privacy enquiries, complaints, withdrawal of consent or requests
 			to exercise your data protection rights`
@@ -721,7 +721,7 @@ export const termsOfUseData: PrivacyPolicyProps[] = [
 		content: [
 			`Fortune Ikenna Awuzie, Data Protection Officer`,
 			`Telephone: +2349139167076`,
-			`Email: fortune@govtechafrica.com`
+			`Email: compliance@govtechafrica.com`
 		]
 	},
 ];
@@ -846,7 +846,7 @@ export const cookiesPolicyData: cookiesPolicyDataProps[] = [
 				body: [
 					"Data Protection Officer, Govtech Africa Limited",
 					"Telephone: +2349139167076",
-					"Email: fortune@govtechafrica.com"
+					"Email: compliance@govtechafrica.com"
 				]
 			}
 		]
@@ -896,7 +896,7 @@ export const technologies: TechnologyProps[] = [
 	{
 		title: "Customised Software Solutions",
 		description: "We co-create the best solutions tailored to each agency’s need",
-		href: "customised-software-solutions",
+		href: "/customised-software-solutions",
 		image: '/svgs/customized.svg',
 		id: "customised",
 	},

@@ -1,0 +1,30 @@
+@import "@/styles/imports";
+
+.solutions_view {
+    width: 100%;
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-margin-top: 14rem;
+}
+
+.spacing {
+    margin-top: 10rem;
+}
+
+@include screenMax("tablet") {
+    .solutions_view {
+        scroll-margin-top: 11rem;
+    }
+    .spacing {
+        margin-top: 8rem;
+    }
+}
+
+@include screenMax("mobile") {
+    .solutions_view {
+        scroll-margin-top: 8rem;
+    }
+    .spacing {
+        margin-top: 6rem;
+    }
+}
